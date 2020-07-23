@@ -28,6 +28,7 @@ public class Main extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     // 定义所有的飞行物对象 - 包括小蜜蜂\敌机\大敌机

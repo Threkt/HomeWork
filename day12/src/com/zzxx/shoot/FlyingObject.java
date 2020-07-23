@@ -63,6 +63,10 @@ public abstract class FlyingObject {
         this.img = img;
     }
 
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     public int getWidth() {
         return width;
     }
@@ -75,7 +79,4 @@ public abstract class FlyingObject {
         return life;
     }
 
-    public void setLife(int life) {
-        this.life = life;
-    }
 }

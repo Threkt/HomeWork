@@ -58,7 +58,7 @@ public class Hero extends FlyingObject {
     public boolean shootByFlying(FlyingObject fly) {
         // this.x this.y fly.getX() fly.getY()
         // 自行完成判断
-        return true;
+        return false;
     }
 
     public int getScore() {
