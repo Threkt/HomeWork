@@ -5,5 +5,10 @@ package day02;
  *
  */
 public class Test04 {
-
+    public static void main(String[] args) {
+        String str ="123abc456def789ghi";
+        String regex = "[a-z]+";
+        String a = str.replaceAll(regex, "#char#");
+        System.out.println(a);
+    }
 }
