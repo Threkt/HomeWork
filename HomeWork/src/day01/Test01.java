@@ -9,6 +9,7 @@ package day01;
  * 7:输出"HelloWorld"中第6个字符"W"
  * 8:输出"HelloWorld"是否是以"h"开头和"ld"结尾的。
  * 9:将"HelloWorld"分别转换为全大写和全小写并输出。
+ * 忽略大小写 equalsIgnoreCase()
  * @author Bonnie
  *
  */
@@ -54,7 +55,7 @@ public class Test01 {
 		System.out.println(str.substring(5,10));
 	}
 	private static void test6(String str) {
-		System.out.println(str.replace(" ",""));
+		System.out.println(str.trim());
 	}
 	private static void test7(String str) {
 		System.out.println(str.charAt(5));

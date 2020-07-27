@@ -1,4 +1,9 @@
 package day05;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+
 /**
  * 定义私有属性:
  * String name;
@@ -17,6 +22,92 @@ package day05;
  * @author Bonnie
  *
  */
-public class Emp {
+public class Emp implements Comparable{
+    private String name;
+    private int age;
+    private String gender;
+    private int salary;
+    private Date hiredate;
 
+    public Emp() {
+    }
+
+    public Emp(String name, int age, String gender, int salary, Date hiredate) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.salary = salary;
+        this.hiredate = hiredate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public Date getHiredate() {
+        return hiredate;
+    }
+
+    public void setHiredate(Date hiredate) {
+        this.hiredate = hiredate;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        return "姓名：" + name +
+                ",年龄：" + age +
+                ",性别：" + gender +
+                ",薪资：" + salary +
+                ",入职时间：" + sf.format(hiredate);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Emp emp = (Emp) o;
+        return age == emp.age && Objects.equals(name, emp.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, gender, salary, hiredate);
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        Emp emp = (Emp) o;
+        return emp.getAge()-this.getAge();
+    }
 }
+

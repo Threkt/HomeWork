@@ -83,7 +83,7 @@ public class Emp {
     public String toString() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         return
-                "姓名：'" + name +
+                "姓名：" + name +
                 ", 年龄：" + age +
                 ", 性别：'" + gender +
                 ", 薪资：" + salary +

@@ -16,7 +16,7 @@ public class Test02 {
 		//然后将"大家好!我是程序员!"修改为:"大家好!我是优秀的程序员!"并输出
 		System.out.println(sb.insert(6,"优秀的"));
 		//然后再修改为:"大家好!我是牛牛的程序员!"并输出
-		System.out.println(sb.replace(6,8,"牛牛"));
+		System.out.println(sb.replace(6,8,"牛牛"));//前包含，后不包含
 		//然后在修改为:"我是牛牛的程序员!"并输出
 		System.out.println(sb.delete(0,4));
 

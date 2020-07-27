@@ -24,7 +24,7 @@ public class Test05 {
 		Scanner console = new Scanner(System.in);
 		String str = console.next();
 		String str1 = sb.toString();
-		if (str1.toLowerCase().equals(str.toLowerCase())){
+		if (str1.equalsIgnoreCase(str)){
 			System.out.println("验证成功");
 		}else{
 			System.out.println("验证码错误");
