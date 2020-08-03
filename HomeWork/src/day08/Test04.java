@@ -1,4 +1,15 @@
 package day08;
+
+import org.junit.Test;
+
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
 /**
  * 使用异常捕获机制完成下述读取操作
  * 读取emp.txt文件，并将每个员工信息读取出来，以一个Emp实例保存，然后将
@@ -13,5 +24,53 @@ package day08;
  *
  */
 public class Test04 {
+    @Test
+    public  void test(){
+        BufferedReader br=null;
+        int flag =0;
+        try {
+            br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\Administrator\\Desktop\\java\\ideaworks\\zhi-zheng\\HomeWork\\src\\day08\\emp.txt")));
+            String str ;
+            Map<String,Emp> map = new HashMap<>();
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+            while ((str=br.readLine())!=null){
+                Emp emp = new Emp();
+                String[] split = str.split("\\,");
+                emp.setName(split[0]);
+                emp.setAge(Integer.valueOf(split[1]));
+                emp.setGender(split[2]);
+                emp.setSalary(Integer.valueOf(split[3]));
+                emp.setHiredate(sf.parse(split[4]));
+                map.put(split[0],emp);
+            }
+            System.out.println("请输入员工姓名");
+            Scanner console = new Scanner(System.in);
+            String name = console.next();
+            Set<String> set = map.keySet();
+            for (String s : set) {
+                if (s.equalsIgnoreCase(name)){
+                    System.out.println(map.get(s).toString());
+                    flag++;
+                    break;
+                }
+            }
+            if (flag==0){
+                System.out.println("查无此人");
+            }
 
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }finally {
+            if (br!=null){
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

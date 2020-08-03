@@ -1,5 +1,10 @@
 package day06;
 
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
 /**
  * 要求用户输入一个员工信息，格式为：
  * name,age,gender,salary,hiredate
@@ -14,6 +19,29 @@ package day06;
  *
  */
 public class Test10 {
-	
-	
+    public static void main(String[] args) throws ParseException, IOException {
+        System.out.println("请输入员工的数量(大于等于5)");
+        Scanner console = new Scanner(System.in);
+        int num = console.nextInt();
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        for (int i = 0; i < num; i++) {
+            Emp emp = new Emp();
+            System.out.println("请输入员工的信息(name,age,gender,salary,hiredate)");
+            String str = console.next();
+            String[] split = str.split("\\,");
+            emp.setName(split[0]);
+            emp.setAge(Integer.valueOf(split[1]));
+            emp.setGender(split[2]);
+            emp.setSalary(Integer.valueOf(split[3]));
+            emp.setHiredate(sf.parse(split[4]));
+            Writer writer = new OutputStreamWriter(new FileOutputStream(split[0]+".emp"));
+            if (i==num-1){
+                writer.write(emp.toString());
+                writer.close();
+                break;
+            }
+            writer.write(emp.toString());
+            writer.flush();
+        }
+    }
 }

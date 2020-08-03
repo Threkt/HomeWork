@@ -93,6 +93,6 @@ public class Emp {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, gender, salary, hiredate);
+        return Objects.hash(name);
     }
 }
