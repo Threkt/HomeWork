@@ -1,5 +1,7 @@
 package day06;
 
+import org.junit.Test;
+
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,7 +21,8 @@ import java.util.Scanner;
  *
  */
 public class Test10 {
-    public static void main(String[] args) throws ParseException, IOException {
+    @Test
+    public void test01() throws ParseException, IOException {
         System.out.println("请输入员工的数量(大于等于5)");
         Scanner console = new Scanner(System.in);
         int num = console.nextInt();

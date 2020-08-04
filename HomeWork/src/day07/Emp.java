@@ -23,7 +23,7 @@ import java.util.Objects;
  *
  */
 public class Emp implements Serializable {
-    long serialVersionUID = 12345L;
+    public static final long serialVersionUID = 12345L;
     private String name;
     private int age;
     private String gender;
